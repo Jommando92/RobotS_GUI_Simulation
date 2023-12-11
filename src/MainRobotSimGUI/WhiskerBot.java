@@ -29,9 +29,7 @@ public class WhiskerBot extends Robot {
 		col = 'r';
 		rAngle = ia;
 		rSpeed = is;
-
 	}
-
 
 	/**
 	 * checkRobot in arena
@@ -45,7 +43,6 @@ public class WhiskerBot extends Robot {
 				adjustRobot();
 			}
 	}
-
 
 	/**
 	 * draw Robot and display score
@@ -99,13 +96,6 @@ public class WhiskerBot extends Robot {
 		x += rSpeed * Math.cos(radAngle); // move Robot
 		y += rSpeed * Math.sin(radAngle);
 	}
-
-      // not needed here ..
-		@Override
-		public void setXY(double nx, double ny) {
-			// TODO Auto-generated method stub
-
-		}
 	/**
 	 * return string defining Robot ... here as target
 	 */

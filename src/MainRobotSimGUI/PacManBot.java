@@ -34,13 +34,6 @@ public class PacManBot extends Robot {
 		rSpeed = is;
 	}
 
-
-
-
-
-
-
-
 	/**
 	 * checkRobot for collision in arena
 	 * @param b RobotArena
@@ -53,9 +46,8 @@ public class PacManBot extends Robot {
 
 	}
 
-
 	/**
-	 * draw Robot and display score
+	 * draw Robot
 	 */
 
 	public void drawRobot(MyCanvas mc) {
@@ -113,12 +105,6 @@ public class PacManBot extends Robot {
 		y += rSpeed * Math.sin(radAngle);
 	}
 
-      // not needed here ..
-		@Override
-		public void setXY(double nx, double ny) {
-			// TODO Auto-generated method stub
-
-		}
 	/**
 	 * return string defining Robot ... here as target
 	 */

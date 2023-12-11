@@ -28,8 +28,6 @@ public class BeamBot extends Robot {
 		col = 'g';
 		rAngle = ia;
 		rSpeed = is;
-
-
 	}
 
 
@@ -64,13 +62,9 @@ public class BeamBot extends Robot {
 		double y3 = y + (rad * Math.sin(ang - Math.PI / 4));
 		double x4 = x + (rad * Math.cos(ang - 3 * Math.PI / 4));
 		double y4 = y + (rad * Math.sin(ang - 3 * Math.PI / 4));
-
-
 		// adjust the angle of the lines to the Robot angle of travel
-		// adjust the angle of the lines to the Robot angle of travel
-		mc.showLineWheels(x1, y1, x2, y2); // draw Robot wheels
-		mc.showLineWheels(x3, y3, x4, y4); // draw Robot Wheels
-
+		mc.showLineWheels(x1, y1, x2, y2); // draw Robot wheels 1
+		mc.showLineWheels(x3, y3, x4, y4); // draw Robot Wheels 2
 	}
 
 	/**
@@ -84,7 +78,6 @@ public class BeamBot extends Robot {
 		y += rSpeed * Math.sin(radAngle);
 	}
 
-      // not needed here ..
 		@Override
 		public void setXY(double nx, double ny) {
 			// TODO Auto-generated method stub

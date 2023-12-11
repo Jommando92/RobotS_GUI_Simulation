@@ -107,14 +107,10 @@ public abstract class Robot implements Serializable {
      double x4 = x + (rad * Math.cos(ang - 3 * Math.PI / 4));
      double y4 = y + (rad * Math.sin(ang - 3 * Math.PI / 4));
 
-
-
-
      // adjust the angle of the lines to the Robot angle of travel
      mc.showLineWheels(x1, y1, x2, y2); // draw Robot wheels
      mc.showLineWheels(x3, y3, x4, y4); // draw Robot Wheels
   }
-
 
   protected String getStrType() {
     return "Robot";

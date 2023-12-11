@@ -51,14 +51,6 @@ public class MyCanvas {
     gc.clearRect(0, 0, xCanvasSize, yCanvasSize); // clear canvas
   }
 
-  public void drawWheels(double x, double y, double rad, double angle) {
-    gc.fillArc(x - rad, y - rad, rad * 2, rad * 2, 0, 360, ArcType.ROUND); // fill circle
-  }
-
-  public void showLine(double x1, double y1, double x2, double y2) {
-    gc.strokeLine(x1, y1, x2, y2);
-  }
-
   /**
    * drawIt ... draws object defined by given image at position and size
    * @param i		image
@@ -153,18 +145,6 @@ public class MyCanvas {
     setFillColour(colFromChar(col)); // set the fill colour
     gc.fillArc(x - rad, y - rad, rad * 2, rad * 2, 0, 360, ArcType.ROUND); // fill circle
   }
-
-  /**
-  * show circle in current  colour atx,y size rad
-  * @param x // x position
-  * @param y // y position
-  * @param rad  // radius
-  * @param angle // angle
-  */
-  public void showCircle(double x, double y, double rad, double angle) {
-     gc.fillArc(x - rad, y - rad, rad * 2, rad * 2, 0, 360, ArcType.ROUND); // fill circle
-  }
-
   /**
    * show line in current colour from x,y to ix,iy with width 5
    * @param x // start of line
