@@ -18,7 +18,7 @@ public class MyCanvas {
 
   /**
    * onstructor sets up relevant Graphics context and size of canvas
-   * 
+   *
    * @param g
    * @param cs
    */
@@ -30,7 +30,7 @@ public class MyCanvas {
 
   /**
    * get size in x of canvas
-   * 
+   *
    * @return xsize
    */
   public int getXCanvasSize() {
@@ -39,7 +39,7 @@ public class MyCanvas {
 
   /**
    * get size of xcanvas in y
-   * 
+   *
    * @return ysize
    */
   public int getYCanvasSize() {
@@ -62,7 +62,7 @@ public class MyCanvas {
 
   /**
    * drawIt ... draws object defined by given image at position and size
-   * 
+   *
    * @param i  image
    * @param x  xposition in range 0..1
    * @param y  yposition in range 0..1
@@ -76,7 +76,7 @@ public class MyCanvas {
 
   /**
    * function to convert char c to actual colour used
-   * 
+   *
    * @param c
    * @return Color
    */
@@ -137,7 +137,7 @@ public class MyCanvas {
 
   /**
    * set the fill colour to c
-   * 
+   *
    * @param c
    */
   public void setFillColour(Color c) { // set fill colour
@@ -146,7 +146,7 @@ public class MyCanvas {
 
   /**
    * show the Robot at position x,y , radius r in colour defined by col
-   * 
+   *
    * @param x   // x position
    * @param y   // y position
    * @param rad // radius
@@ -159,7 +159,7 @@ public class MyCanvas {
 
   /**
    * show line in current colour from x,y to ix,iy with width 5
-   * 
+   *
    * @param x  // start of line
    * @param y  // start of line
    * @param ix // end of line
@@ -179,7 +179,7 @@ public class MyCanvas {
 
   /**
    * Show Text .. by writing string s at position x,y
-   * 
+   *
    * @param x
    * @param y
    * @param s
@@ -197,7 +197,7 @@ public class MyCanvas {
 
   /**
    * Show Int .. by writing int i at position x,y
-   * 
+   *
    * @param x
    * @param y
    * @param i

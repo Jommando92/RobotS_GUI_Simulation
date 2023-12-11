@@ -30,7 +30,7 @@ public class WhiskerBot extends Robot {
 
 	/**
 	 * checkRobot in arena
-	 * 
+	 *
 	 * @param b RobotArena
 	 */
 	@Override

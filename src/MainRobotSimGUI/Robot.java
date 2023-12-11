@@ -26,7 +26,7 @@ public abstract class Robot implements Serializable {
 
   /**
    * construct a Robot of radius ir at ix,iy
-   * 
+   *
    * @param ix
    * @param iy
    * @param ir
@@ -43,7 +43,7 @@ public abstract class Robot implements Serializable {
 
   /**
    * return x position
-   * 
+   *
    * @return
    */
   public double getX() {
@@ -52,7 +52,7 @@ public abstract class Robot implements Serializable {
 
   /**
    * return y position
-   * 
+   *
    * @return
    */
   public double getY() {
@@ -61,7 +61,7 @@ public abstract class Robot implements Serializable {
 
   /**
    * return radius of Robot
-   * 
+   *
    * @return
    */
   public double getRad() {
@@ -70,7 +70,7 @@ public abstract class Robot implements Serializable {
 
   /**
    * set the Robot at position nx,ny
-   * 
+   *
    * @param nx
    * @param ny
    */
@@ -81,7 +81,7 @@ public abstract class Robot implements Serializable {
 
   /**
    * return the identity of Robot
-   * 
+   *
    * @return
    */
   public int getID() {
@@ -94,7 +94,7 @@ public abstract class Robot implements Serializable {
 
   /**
    * draw a Robot into the interface bi
-   * 
+   *
    * @param bi
    */
   public void drawRobot(MyCanvas mc) {
@@ -132,7 +132,7 @@ public abstract class Robot implements Serializable {
 
   /**
    * abstract method for checking a Robot in arena b
-   * 
+   *
    * @param b
    */
   protected abstract void checkRobot(RobotArena b);
@@ -144,7 +144,7 @@ public abstract class Robot implements Serializable {
 
   /**
    * is Robot at ox,oy size or hitting this Robot
-   * 
+   *
    * @param ox
    * @param oy
    * @param or

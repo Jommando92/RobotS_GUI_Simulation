@@ -18,7 +18,7 @@ public class GameRobot extends Robot {
 
    /**
     * Create game Robot, size ir ay ix,iy, moving at angle ia and speed is
-    * 
+    *
     * @param ix
     * @param iy
     * @param ir
@@ -39,7 +39,7 @@ public class GameRobot extends Robot {
 
    /**
     * checkRobot - change angle of travel if hitting wall or another Robot
-    * 
+    *
     * @param arena RobotArena
     */
    @Override

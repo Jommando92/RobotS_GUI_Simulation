@@ -31,7 +31,7 @@ public class RobotArena implements Serializable {
 
   /**
    * construct arena of size xS by yS
-   * 
+   *
    * @param xS
    * @param yS
    */
@@ -48,7 +48,7 @@ public class RobotArena implements Serializable {
 
   /**
    * return arena size in x direction
-   * 
+   *
    * @return
    */
   public double getXSize() {
@@ -57,7 +57,7 @@ public class RobotArena implements Serializable {
 
   /**
    * return arena size in y direction
-   * 
+   *
    * @return
    */
   public double getYSize() {
@@ -66,7 +66,7 @@ public class RobotArena implements Serializable {
 
   /**
    * draw all Robots in the arena into interface bi
-   * 
+   *
    * @param bi
    */
   public void drawArena(MyCanvas mc) {
@@ -101,7 +101,7 @@ public class RobotArena implements Serializable {
 
   /**
    * return list of strings defining each Robot
-   * 
+   *
    * @return
    */
   public ArrayList<String> describeAll() {
@@ -114,7 +114,7 @@ public class RobotArena implements Serializable {
   /**
    * Check angle of Robot ... if hitting wall, rebound; if hitting Robot, change
    * angle
-   * 
+   *
    * @param x     Robot x position
    * @param y     y
    * @param rad   radius
@@ -140,7 +140,7 @@ public class RobotArena implements Serializable {
 
   /**
    * check if the target Robot has been hit by another Robot
-   * 
+   *
    * @param target the target Robot
    * @return true if hit
    */
@@ -159,7 +159,7 @@ public class RobotArena implements Serializable {
 
   /**
    * Load the arena with the set up in the given file
-   * 
+   *
    * @param fname
    * @return 0 if successful
    */
@@ -187,7 +187,7 @@ public class RobotArena implements Serializable {
 
   /**
    * save the arena and its contents into the named file
-   * 
+   *
    * @param fname
    * @return 0 if ok
    */

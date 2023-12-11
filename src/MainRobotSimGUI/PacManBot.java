@@ -31,7 +31,7 @@ public class PacManBot extends Robot {
 
 	/**
 	 * checkRobot for collision in arena
-	 * 
+	 *
 	 * @param b RobotArena
 	 */
 	@Override
