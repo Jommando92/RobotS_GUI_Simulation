@@ -76,6 +76,8 @@ public class RobotArena implements Serializable {
     return allRobots;
   }
 
+
+
   /**
    * check all Robots .. see if need to change angle of moving Robots, etc
    */
@@ -87,9 +89,6 @@ public class RobotArena implements Serializable {
   public void removeRobot(Robot robot) {
     allRobots.remove(robot);
   }
-
-
-
 
   /**
    * adjust all Robots .. move any moving ones

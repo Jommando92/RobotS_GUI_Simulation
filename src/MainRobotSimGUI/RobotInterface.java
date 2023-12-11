@@ -19,13 +19,18 @@ import javafx.scene.Scene;
 import javafx.scene.canvas.Canvas;
 import javafx.scene.control.Alert;
 import javafx.scene.control.Button;
+import javafx.scene.control.ButtonBar.ButtonData;
+import javafx.scene.control.ButtonType;
+import javafx.scene.control.Dialog;
 import javafx.scene.control.Label;
 import javafx.scene.control.Menu;
 import javafx.scene.control.MenuBar;
 import javafx.scene.control.MenuItem;
+import javafx.scene.control.TextField;
 import javafx.scene.control.TextInputDialog;
 import javafx.scene.control.Alert.AlertType;
 import javafx.scene.layout.BorderPane;
+import javafx.scene.layout.GridPane;
 import javafx.scene.layout.HBox;
 import javafx.scene.layout.VBox;
 import javafx.stage.FileChooser;
@@ -138,11 +143,34 @@ public class RobotInterface extends Application {
 			return menuBar; // return the menu
 		}
 
-		private void showNewArenaDialog() {
-			TextInputDialog dialog = new TextInputDialog();
+			private void showNewArenaDialog() {
+				GridPane grid = new GridPane();
+				grid.setHgap(10);
+				grid.setVgap(10);
+				grid.setPadding(new Insets(20, 150, 10, 10));
+
+				TextField widthField = new TextField();
+				TextField heightField = new TextField();
+
+			grid.add(new Label("Width:"), 0, 0);
+			grid.add(widthField, 1, 0);
+			grid.add(new Label("Height:"), 0, 1);
+			grid.add(heightField, 1, 1);
+
+			Dialog<String> dialog = new Dialog<>();
 			dialog.setTitle("New Arena");
 			dialog.setHeaderText(null);
-			dialog.setContentText("Enter the width and height of the new arena (separated by a space):");
+			dialog.getDialogPane().setContent(grid);
+
+			ButtonType createButtonType = new ButtonType("Create", ButtonData.OK_DONE);
+			dialog.getDialogPane().getButtonTypes().addAll(createButtonType, ButtonType.CANCEL);
+
+			dialog.setResultConverter(dialogButton -> {
+				if (dialogButton == createButtonType) {
+					return widthField.getText() + " " + heightField.getText();
+				}
+				return null;
+			});
 
 			Optional<String> result = dialog.showAndWait();
 
@@ -160,7 +188,7 @@ public class RobotInterface extends Application {
 					showMessage("Error", "Invalid input. Please enter both width and height.");
 				}
 			});
-		}
+			}
 
 		private void createNewArena(int width, int height) {
 			// Create a new arena with the specified width and height
