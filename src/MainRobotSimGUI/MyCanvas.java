@@ -9,7 +9,7 @@ import javafx.scene.text.TextAlignment;
 
 /**
  * @author shsmchlr
- *         Class to handle a canvas, used by different GUIs
+ *      MyCanvas - class to provide a canvas for drawing on and some useful functions
  */
 public class MyCanvas {
   int xCanvasSize = 700; // constants for relevant sizes

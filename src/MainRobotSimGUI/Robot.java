@@ -8,7 +8,7 @@ import java.io.Serializable;
 
 /**
  * @author Jumar Quinio Mesicias
- *
+ * this Robot is the parent class of all the other Robots in the arena
  */
 public abstract class Robot implements Serializable {
 

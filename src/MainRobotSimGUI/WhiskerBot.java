@@ -6,7 +6,7 @@ package MainRobotSimGUI;
 
 /**
  * @author Jumar Quinio Mesicias
- *         The WhiskerRobot which you are aiming at
+ *         The WhiskerRobot is the robot that will move after detecting anything blocking its path, using its whiskers
  */
 public class WhiskerBot extends Robot {
 	private static final long serialVersionUID = 1L;// private int score;

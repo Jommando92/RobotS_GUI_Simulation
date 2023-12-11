@@ -9,6 +9,8 @@ import java.util.Random;
 /**
  * @author Jumar Quinio Mesicias
  *
+ *        The Game Robot which you are controlling to hit the TargetRobot
+ *
  */
 public class GameRobot extends Robot {
 

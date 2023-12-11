@@ -8,7 +8,8 @@ import java.util.Iterator;
 
 /**
  * @author Jumar Quinio Mesicias
- *         The PacManRobot which you are aiming at
+ *         The PacManRobot eats the GameRobot when it is within eating range
+ *
  */
 public class PacManBot extends Robot {
 	private static final long serialVersionUID = 1L;

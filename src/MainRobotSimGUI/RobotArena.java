@@ -14,7 +14,7 @@ import java.util.ArrayList;
 
 /**
  * @author Jumar Quinio Mesicias
- *         Class for Arena of Robots
+ *      The RobotArena is the arena where the Robots are placed
  */
 public class RobotArena implements Serializable {
 

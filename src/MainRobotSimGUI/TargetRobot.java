@@ -6,7 +6,7 @@ package MainRobotSimGUI;
 
 /**
  * @author Jumar Quinio Mesicias
- *         The Target Robot which you are aiming at
+ *         The Target Robot which you are aiming at to hit with the GameRobot
  */
 public class TargetRobot extends Robot {
 	private static final long serialVersionUID = 1L;

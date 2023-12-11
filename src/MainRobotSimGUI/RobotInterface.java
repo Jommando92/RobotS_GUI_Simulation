@@ -38,7 +38,7 @@ import javafx.util.Pair;
 
 /**
  * @author Jumar Quinio Mesicias
- *         Example with Robots
+ *        This is the main class of the Robot Simulation GUI
  */
 public class RobotInterface extends Application {
 	private MyCanvas mc;
