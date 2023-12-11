@@ -4,17 +4,14 @@ package MainRobotSimGUI;
  *
  */
 
-
 /**
  * @author Jumar Quinio Mesicias
- * The  WhiskerRobot which you are aiming at
+ *         The WhiskerRobot which you are aiming at
  */
 public class WhiskerBot extends Robot {
 	private static final long serialVersionUID = 1L;// private int score;
 	private double rAngle;
 	private double rSpeed; // angle and speed of travel
-
-
 
 	/**
 	 * @param ix // x position
@@ -33,6 +30,7 @@ public class WhiskerBot extends Robot {
 
 	/**
 	 * checkRobot in arena
+	 * 
 	 * @param b RobotArena
 	 */
 	@Override
@@ -40,8 +38,8 @@ public class WhiskerBot extends Robot {
 		double originalAngle = rAngle;
 		rAngle = b.CheckRobotAngle(x, y, rad, rAngle, RobotID); // check for collision with wall or Robot
 		if (originalAngle != rAngle) {
-				adjustRobot();
-			}
+			adjustRobot();
+		}
 	}
 
 	/**
@@ -83,7 +81,6 @@ public class WhiskerBot extends Robot {
 		mc.showLine(x, y, antenna1X, antenna1Y, antennaWidth); // Draw antenna 1
 		mc.showLine(x, y, antenna2X, antenna2Y, antennaWidth); // Draw antenna 2
 
-
 	}
 
 	/**
@@ -96,6 +93,7 @@ public class WhiskerBot extends Robot {
 		x += rSpeed * Math.cos(radAngle); // move Robot
 		y += rSpeed * Math.sin(radAngle);
 	}
+
 	/**
 	 * return string defining Robot ... here as target
 	 */

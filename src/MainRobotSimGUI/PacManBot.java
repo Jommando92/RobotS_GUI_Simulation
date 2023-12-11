@@ -4,21 +4,16 @@ package MainRobotSimGUI;
  *
  */
 
-
 import java.util.Iterator;
-
 
 /**
  * @author Jumar Quinio Mesicias
- * The  PacManRobot which you are aiming at
+ *         The PacManRobot which you are aiming at
  */
 public class PacManBot extends Robot {
 	private static final long serialVersionUID = 1L;
 	private double rAngle; // angle and speed of travel
 	private double rSpeed; // angle and speed of travel
-
-
-
 
 	/**
 	 * @param ix // x position
@@ -36,13 +31,14 @@ public class PacManBot extends Robot {
 
 	/**
 	 * checkRobot for collision in arena
+	 * 
 	 * @param b RobotArena
 	 */
 	@Override
 
 	protected void checkRobot(RobotArena arena) {
 		rAngle = arena.CheckRobotAngle(x, y, rad, rAngle, RobotID); // check for collision with wall or Robot
-		//if the angle change, it means it hit something
+		// if the angle change, it means it hit something
 
 	}
 
@@ -72,7 +68,6 @@ public class PacManBot extends Robot {
 		mc.showLineWheels(x3, y3, x4, y4); // draw Robot Wheels
 	}
 
-
 	public void eatGameRobots(RobotArena arena) {
 		Iterator<Robot> iterator = arena.getAllRobots().iterator();
 		while (iterator.hasNext()) {
@@ -92,7 +87,6 @@ public class PacManBot extends Robot {
 
 	// Add a constant for the eating range (you can adjust this value)
 	private static final double EATING_RANGE = 0; // 0 means the PacManBot must be touching the GameRobot to eat it
-
 
 	/**
 	 * adjustRobot

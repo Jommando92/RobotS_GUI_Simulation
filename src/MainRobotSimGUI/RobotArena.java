@@ -14,14 +14,13 @@ import java.util.ArrayList;
 
 /**
  * @author Jumar Quinio Mesicias
- * Class for Arena of Robots
+ *         Class for Arena of Robots
  */
 public class RobotArena implements Serializable {
 
   private static final long serialVersionUID = 1L;
   private double xSize, ySize; // size of arena
   private ArrayList<Robot> allRobots; // array list of all Robots in arena
-
 
   /**
    * construct an arena
@@ -32,6 +31,7 @@ public class RobotArena implements Serializable {
 
   /**
    * construct arena of size xS by yS
+   * 
    * @param xS
    * @param yS
    */
@@ -43,11 +43,12 @@ public class RobotArena implements Serializable {
     allRobots.add(new TargetRobot(xS / 5, yS / 7, 14, 30, 2)); // add target Robot
     allRobots.add(new BeamBot(xS / 4, yS / 2, 14, 270, 3)); // add target Robot
     allRobots.add(new WhiskerBot(xS / 8, yS / 2, 14, 45, 3));
-    allRobots.add(new PacManBot(xS/1.2, yS/2, 14, 65, 2));
+    allRobots.add(new PacManBot(xS / 1.2, yS / 2, 14, 65, 2));
   }
 
   /**
    * return arena size in x direction
+   * 
    * @return
    */
   public double getXSize() {
@@ -56,6 +57,7 @@ public class RobotArena implements Serializable {
 
   /**
    * return arena size in y direction
+   * 
    * @return
    */
   public double getYSize() {
@@ -64,6 +66,7 @@ public class RobotArena implements Serializable {
 
   /**
    * draw all Robots in the arena into interface bi
+   * 
    * @param bi
    */
   public void drawArena(MyCanvas mc) {
@@ -75,8 +78,6 @@ public class RobotArena implements Serializable {
   public ArrayList<Robot> getAllRobots() {
     return allRobots;
   }
-
-
 
   /**
    * check all Robots .. see if need to change angle of moving Robots, etc
@@ -94,36 +95,43 @@ public class RobotArena implements Serializable {
    * adjust all Robots .. move any moving ones
    */
   public void adjustRobots() {
-    for (Robot b : allRobots) b.adjustRobot( );// adjust all Robots
+    for (Robot b : allRobots)
+      b.adjustRobot();// adjust all Robots
   }
-
 
   /**
    * return list of strings defining each Robot
+   * 
    * @return
    */
   public ArrayList<String> describeAll() {
     ArrayList<String> ans = new ArrayList<String>(); // set up empty arraylist
-    for (Robot b : allRobots) ans.add(b.toString()); // add string defining each Robot
+    for (Robot b : allRobots)
+      ans.add(b.toString()); // add string defining each Robot
     return ans; // return string list
   }
 
-
   /**
-   * Check angle of Robot ... if hitting wall, rebound; if hitting Robot, change angle
-   * @param x				Robot x position
-   * @param y				y
-   * @param rad			radius
-   * @param ang			current angle
-   * @param notID			identify of Robot not to be checked
-   * @return				new angle
+   * Check angle of Robot ... if hitting wall, rebound; if hitting Robot, change
+   * angle
+   * 
+   * @param x     Robot x position
+   * @param y     y
+   * @param rad   radius
+   * @param ang   current angle
+   * @param notID identify of Robot not to be checked
+   * @return new angle
    */
-  public double CheckRobotAngle(double x,double y,double rad,double ang,int notID) {
+  public double CheckRobotAngle(double x, double y, double rad, double ang, int notID) {
     double ans = ang;
-    if (x < rad || x > xSize - rad) ans = 180 - ans;// if Robot hit (tried to go through) left or right walls, set mirror angle, being 180-angle
-    if (y < rad || y > ySize - rad) ans = -ans;// if try to go off top or bottom, set mirror angle, being -angle
-    for (Robot b : allRobots) if (b.getID() != notID && b.hitting(x, y, rad)
-    ) ans = 180 * Math.atan2(y - b.getY(), x - b.getX()) / Math.PI;
+    if (x < rad || x > xSize - rad)
+      ans = 180 - ans;// if Robot hit (tried to go through) left or right walls, set mirror angle,
+                      // being 180-angle
+    if (y < rad || y > ySize - rad)
+      ans = -ans;// if try to go off top or bottom, set mirror angle, being -angle
+    for (Robot b : allRobots)
+      if (b.getID() != notID && b.hitting(x, y, rad))
+        ans = 180 * Math.atan2(y - b.getY(), x - b.getX()) / Math.PI;
     // check all Robots except one with given id
     // if hitting, return angle between the other Robot and this one.
 
@@ -132,15 +140,16 @@ public class RobotArena implements Serializable {
 
   /**
    * check if the target Robot has been hit by another Robot
-   * @param target	the target Robot
-   * @return 	true if hit
+   * 
+   * @param target the target Robot
+   * @return true if hit
    */
   public boolean checkHit(Robot target) {
-    for (Robot b : allRobots) if (
-      b instanceof GameRobot && b.hitting(target))
-// try all Robots, if GameRobot, check if hitting the target
-return true; // if so, return true
-return false;
+    for (Robot b : allRobots)
+      if (b instanceof GameRobot && b.hitting(target))
+        // try all Robots, if GameRobot, check if hitting the target
+        return true; // if so, return true
+    return false;
   }
 
   public void addRobot() {
@@ -148,9 +157,9 @@ return false;
 
   }
 
-
   /**
    * Load the arena with the set up in the given file
+   * 
    * @param fname
    * @return 0 if successful
    */
@@ -178,6 +187,7 @@ return false;
 
   /**
    * save the arena and its contents into the named file
+   * 
    * @param fname
    * @return 0 if ok
    */
@@ -186,8 +196,7 @@ return false;
     try {
       FileOutputStream fileOutputStream = new FileOutputStream(fname); // setup
       ObjectOutputStream outputStream = new ObjectOutputStream(
-        fileOutputStream
-      );
+          fileOutputStream);
       outputStream.writeObject(this); // write arena and contents
       outputStream.close(); // close
       fileOutputStream.close();

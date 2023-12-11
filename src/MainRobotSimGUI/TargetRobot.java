@@ -4,10 +4,9 @@ package MainRobotSimGUI;
  *
  */
 
-
 /**
  * @author Jumar Quinio Mesicias
- * The Target Robot which you are aiming at
+ *         The Target Robot which you are aiming at
  */
 public class TargetRobot extends Robot {
 	private static final long serialVersionUID = 1L;
@@ -15,23 +14,23 @@ public class TargetRobot extends Robot {
 	private double rAngle;
 	private double rSpeed; // angle and speed of travel
 
-
 	/**
 	 * @param ix
 	 * @param iy
 	 * @param ir
 	 */
 	public TargetRobot(double ix, double iy, double ir, double ia, double is) {
-	super(ix, iy, ir, ia, is);
-	score = 0;
-     col = 'o';
-     rAngle = ia;
-	rSpeed = is;
+		super(ix, iy, ir, ia, is);
+		score = 0;
+		col = 'o';
+		rAngle = ia;
+		rSpeed = is;
 
 	}
 
 	/**
 	 * checkRobot in arena
+	 * 
 	 * @param b RobotArena
 	 */
 	@Override
@@ -41,7 +40,6 @@ public class TargetRobot extends Robot {
 			score++; // if been hit, then increase score
 	}
 
-
 	/**
 	 * draw Robot and display score
 	 */
@@ -50,6 +48,7 @@ public class TargetRobot extends Robot {
 		mc.showCircle(x, y, rad, col); // draw Robot body
 		mc.showInt(x, y, score); // display score
 	}
+
 	/**
 	 * adjustRobot
 	 * for moving the Robot - not needed here
@@ -61,12 +60,13 @@ public class TargetRobot extends Robot {
 		y += rSpeed * Math.sin(radAngle);
 	}
 
-      // not needed here ..
-		@Override
-		public void setXY(double nx, double ny) {
-			// TODO Auto-generated method stub
+	// not needed here ..
+	@Override
+	public void setXY(double nx, double ny) {
+		// TODO Auto-generated method stub
 
-		}
+	}
+
 	/**
 	 * return string defining Robot ... here as target
 	 */
