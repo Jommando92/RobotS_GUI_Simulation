@@ -19,6 +19,7 @@ public class PacManBot extends Robot {
 
 
 
+
 	/**
 	 * @param ix // x position
 	 * @param iy // y position

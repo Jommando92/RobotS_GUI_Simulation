@@ -39,11 +39,11 @@ public class RobotArena implements Serializable {
     xSize = xS;
     ySize = yS;
     allRobots = new ArrayList<Robot>(); // list of all Robots, initially empty
-    allRobots.add(new GameRobot(xS / 2, yS / 2, 14, 15, 3)); // add game Robot
-    allRobots.add(new TargetRobot(xS / 5, yS / 7, 14, 30, 1)); // add target Robot
-    allRobots.add(new BeamBot(xS / 4, yS / 2, 14, 270, 2)); // add target Robot
-    allRobots.add(new WhiskerBot(xS / 8, yS / 2, 14, 45, 2));
-    allRobots.add(new PacManBot(xS/1.2, yS/2, 14, 65, 6));
+    allRobots.add(new GameRobot(xS / 2, yS / 2, 14, 15, 4)); // add game Robot
+    allRobots.add(new TargetRobot(xS / 5, yS / 7, 14, 30, 2)); // add target Robot
+    allRobots.add(new BeamBot(xS / 4, yS / 2, 14, 270, 3)); // add target Robot
+    allRobots.add(new WhiskerBot(xS / 8, yS / 2, 14, 45, 3));
+    allRobots.add(new PacManBot(xS/1.2, yS/2, 14, 65, 2));
   }
 
   /**

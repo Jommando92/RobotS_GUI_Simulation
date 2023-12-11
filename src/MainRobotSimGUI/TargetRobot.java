@@ -23,7 +23,7 @@ public class TargetRobot extends Robot {
 	public TargetRobot(double ix, double iy, double ir, double ia, double is) {
 	super(ix, iy, ir, ia, is);
 	score = 0;
-     col = 'o';
+     col = 't';
      rAngle = ia;
 	rSpeed = is;
 
@@ -49,13 +49,8 @@ public class TargetRobot extends Robot {
 
 		// super.drawRobot(mc); // Commented out as this draws a circle and was duplicating the my robot
 		double ang = rAngle * Math.PI / 180; // put angle in radians
-		mc.showCircle(x, y, rad, col); // draw Robot body
-		drawWheels(mc, ang); // draw Robot wheels
+		mc.showCircle(x, y, rad,col ); // draw Robot body
 		mc.showInt(x, y, score); // display score
-	}
-private void drawWheels(MyCanvas mc, double ang) {
-		mc.showInt(x, y, score); // display score
-
 	}
 
 	/**
