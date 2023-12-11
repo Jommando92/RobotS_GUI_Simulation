@@ -39,20 +39,34 @@ public class PacManBot extends Robot {
 		col = 'n';
 		rAngle = ia;
 		rSpeed = is;
-		isEating = false;
-
 	}
 
+	//method to check if the PacManBot is eating a GameRobot
+	public void checkEating(GameRobot gameRobot) {
+		if (isEating) {
+			double dx = gameRobot.getX() - this.getX();
+			double dy = gameRobot.getY() - this.getY();
+			double distance = Math.sqrt(dx * dx + dy * dy); // calculate distance to GameRobot
 
-	// public void followGameRobot(GameRobot gameRobot) {
-	// 	if (!isEating) {
-	// 		double dx = gameRobot.getX() - this.getX();
-	// 		double dy = gameRobot.getY() - this.getY();
-	// 		rAngle = Math.atan2(dy, dx);
-	// 		this.setX(this.getX() + rSpeed * Math.cos(rAngle));
-	// 		this.setY(this.getY() + rSpeed * Math.sin(rAngle));
-	// 	}
-	// }
+			if (distance > this.getRad() + gameRobot.getRad()) { // if PacManBot has reached GameRobot
+				this.stopEating(); // stop eating
+			}
+		}
+	}
+	//method to follow a GameRobot
+
+	public void followGameRobot(GameRobot gameRobot) {
+		double dx = gameRobot.getX() - this.getX();
+		double dy = gameRobot.getY() - this.getY();
+		double distance = Math.sqrt(dx * dx + dy * dy); // calculate distance to GameRobot
+
+		if (distance > this.getRad() + gameRobot.getRad()) { // if PacManBot has reached GameRobot
+			double angle = Math.atan2(dy, dx); // calculate angle to GameRobot
+			this.setAngle(angle); // set angle to GameRobot
+			this.startEating(); // start eating
+		}
+	}
+
 
 	public boolean isEating() {
 		return isEating;

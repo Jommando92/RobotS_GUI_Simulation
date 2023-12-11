@@ -41,9 +41,9 @@ public class RobotArena implements Serializable {
     allRobots = new ArrayList<Robot>(); // list of all Robots, initially empty
     allRobots.add(new GameRobot(xS / 2, yS / 2, 14, 15, 3)); // add game Robot
     allRobots.add(new TargetRobot(xS / 5, yS / 7, 14, 30, 1)); // add target Robot
-    allRobots.add(new BeamBot(xS / 4, yS / 2, 14, 45, 2)); // add target Robot
+    allRobots.add(new BeamBot(xS / 4, yS / 2, 14, 270, 2)); // add target Robot
     allRobots.add(new WhiskerBot(xS / 8, yS / 2, 14, 45, 2));
-    allRobots.add(new PacManBot(xS/1.2, yS/2, 14, 65, 8));
+    allRobots.add(new PacManBot(xS/1.2, yS/2, 14, 65, 6));
   }
 
   /**
@@ -148,6 +148,26 @@ return false;
     allRobots.add(new GameRobot(xSize / 2, ySize / 5, 10, 35, 3));
 
   }
+
+  public void followGameRobot(GameRobot gameRobot) {
+    for (Robot b : allRobots) if (b instanceof PacManBot) {
+      PacManBot pacManBot = (PacManBot) b;
+      if (!pacManBot.isEating()) {
+        double dx = gameRobot.getX() - pacManBot.getX();
+        double dy = gameRobot.getY() - pacManBot.getY();
+        double distance = Math.sqrt(dx * dx + dy * dy); // calculate distance to GameRobot
+
+        if (distance <= pacManBot.getRad() + gameRobot.getRad()) { // if PacManBot has reached GameRobot
+          pacManBot.startEating(); // start eating
+        } else {
+          pacManBot.setAng(Math.atan2(dy, dx));
+          pacManBot.setX(pacManBot.getX() + pacManBot.getSpeed() * Math.cos(pacManBot.getAngle()));
+          pacManBot.setY(pacManBot.getY() + pacManBot.getSpeed() * Math.sin(pacManBot.getAngle()));
+        }
+      }
+    }
+  }
+
 
   /**
    * Load the arena with the set up in the given file

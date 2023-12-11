@@ -63,23 +63,6 @@ public class TargetRobot extends Robot {
 		mc.showInt(x, y, score); // display score
 	}
 private void drawWheels(MyCanvas mc, double ang) {
-		// double x1 = x + (rad * Math.cos(ang + Math.PI / 4)); // calculate corners of Robot
-		// double y1 = y + (rad * Math.sin(ang + Math.PI / 4));
-		// double x2 = x + (rad * Math.cos(ang + 3 * Math.PI / 4)); // calculate corners of Robot
-		// double y2 = y + (rad * Math.sin(ang + 3 * Math.PI / 4));
-		// double x3 = x + (rad * Math.cos(ang - Math.PI / 4));
-		// double y3 = y + (rad * Math.sin(ang - Math.PI / 4));
-		// double x4 = x + (rad * Math.cos(ang - 3 * Math.PI / 4));
-		// double y4 = y + (rad * Math.sin(ang - 3 * Math.PI / 4));
-
-
-		// adjust the angle of the lines to the Robot angle of travel
-
-		// mc.showCircle( x, y, rad, col); // draw Robot body
-		// // adjust the angle of the lines to the Robot angle of travel
-		// mc.showLineWheels(x1, y1, x2, y2); // draw Robot wheels
-		// mc.showLineWheels(x3, y3, x4, y4); // draw Robot Wheels
-
 		mc.showInt(x, y, score); // display score
 
 	}
