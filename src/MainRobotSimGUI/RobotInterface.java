@@ -216,7 +216,6 @@ public class RobotInterface extends Application {
 				arena.adjustRobots(); // move all Robots
 				drawWorld(); // redraw the world
 				drawStatus(); // indicate where Robots are
-
 				// Inside the AnimationTimer's handle method
 				for (Robot b : arena.getAllRobots()) {
 					if (b instanceof PacManBot) {

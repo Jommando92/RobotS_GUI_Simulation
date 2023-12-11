@@ -149,25 +149,6 @@ return false;
 
   }
 
-  public void followGameRobot(GameRobot gameRobot) {
-    for (Robot b : allRobots) if (b instanceof PacManBot) {
-      PacManBot pacManBot = (PacManBot) b;
-      if (!pacManBot.isEating()) {
-        double dx = gameRobot.getX() - pacManBot.getX();
-        double dy = gameRobot.getY() - pacManBot.getY();
-        double distance = Math.sqrt(dx * dx + dy * dy); // calculate distance to GameRobot
-
-        if (distance <= pacManBot.getRad() + gameRobot.getRad()) { // if PacManBot has reached GameRobot
-          pacManBot.startEating(); // start eating
-        } else {
-          pacManBot.setAng(Math.atan2(dy, dx));
-          pacManBot.setX(pacManBot.getX() + pacManBot.getSpeed() * Math.cos(pacManBot.getAngle()));
-          pacManBot.setY(pacManBot.getY() + pacManBot.getSpeed() * Math.sin(pacManBot.getAngle()));
-        }
-      }
-    }
-  }
-
 
   /**
    * Load the arena with the set up in the given file

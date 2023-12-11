@@ -99,6 +99,6 @@ public class BeamBot extends Robot {
 	 * return string defining Robot ... here as target
 	 */
 	protected String getStrType() {
-		return "Bbot";
+		return "BeamBot";
 	}
 }

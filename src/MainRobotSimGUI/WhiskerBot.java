@@ -93,7 +93,7 @@ public class WhiskerBot extends Robot {
 		mc.showLine(x, y, antenna1X, antenna1Y, antennaWidth); // Draw antenna 1
 		mc.showLine(x, y, antenna2X, antenna2Y, antennaWidth); // Draw antenna 2
 
-		
+
 	}
 
 	/**
@@ -117,6 +117,6 @@ public class WhiskerBot extends Robot {
 	 * return string defining Robot ... here as target
 	 */
 	protected String getStrType() {
-		return "WBot";
+		return "WhiskerBot";
 	}
 }

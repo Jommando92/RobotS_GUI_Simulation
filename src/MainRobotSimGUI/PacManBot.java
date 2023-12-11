@@ -17,6 +17,7 @@ public class PacManBot extends Robot {
 	private double rAngle; // angle and speed of travel
 	private double rSpeed; // angle and speed of travel
 	private boolean isEating; //new attribute to track if the PacManBot is eating a GameRobot
+	private boolean isFollowing; //new attribute to track if the PacManBot is following a GameRobot
 
 
 
@@ -39,6 +40,8 @@ public class PacManBot extends Robot {
 		col = 'n';
 		rAngle = ia;
 		rSpeed = is;
+		isEating = false; //initialise isEating to false
+		isFollowing = false; //initialise isFollowing to false
 	}
 
 	//method to check if the PacManBot is eating a GameRobot
@@ -49,36 +52,23 @@ public class PacManBot extends Robot {
 			double distance = Math.sqrt(dx * dx + dy * dy); // calculate distance to GameRobot
 
 			if (distance > this.getRad() + gameRobot.getRad()) { // if PacManBot has reached GameRobot
-				this.stopEating(); // stop eating
+				isEating = false; // stop eating
 			}
 		}
 	}
-	//method to follow a GameRobot
 
-	public void followGameRobot(GameRobot gameRobot) {
-		double dx = gameRobot.getX() - this.getX();
-		double dy = gameRobot.getY() - this.getY();
-		double distance = Math.sqrt(dx * dx + dy * dy); // calculate distance to GameRobot
+	
 
-		if (distance > this.getRad() + gameRobot.getRad()) { // if PacManBot has reached GameRobot
-			double angle = Math.atan2(dy, dx); // calculate angle to GameRobot
-			this.setAngle(angle); // set angle to GameRobot
-			this.startEating(); // start eating
-		}
+
+	//method to start eating a GameRobot
+	public void startEating() {
+		isEating = true;
 	}
-
-
 	public boolean isEating() {
 		return isEating;
 	}
 
-	public void startEating() {
-		isEating = true;
-	}
 
-	public void stopEating() {
-		isEating = false;
-	}
 
 
 
@@ -166,6 +156,6 @@ public class PacManBot extends Robot {
 	 * return string defining Robot ... here as target
 	 */
 	protected String getStrType() {
-		return "Bbot";
+		return "PacMan`";
 	}
 }

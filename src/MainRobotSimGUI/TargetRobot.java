@@ -88,6 +88,6 @@ private void drawWheels(MyCanvas mc, double ang) {
 	 * return string defining Robot ... here as target
 	 */
 	protected String getStrType() {
-		return "Target";
+		return "TargetRobot";
 	}
 }
