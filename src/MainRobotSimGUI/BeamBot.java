@@ -7,19 +7,14 @@ package MainRobotSimGUI;
 
 /**
  * @author Jumar Quinio Mesicias
- * The Target Robot which you are aiming at
+ * The BeamRobot which you are aiming at
  */
 public class BeamBot extends Robot {
 	private static final long serialVersionUID = 1L;
 	private double rAngle; // angle and speed of travel
 	private double rSpeed; // angle and speed of travel
 
-	/**
-	 *
-	 */
-	// public BeamBot() {
-	// 	this(100, 100, 16, 0, 2); // TODO Auto-generated constructor stub
-	// }
+
 
 	/**
 	 * @param ix // x position

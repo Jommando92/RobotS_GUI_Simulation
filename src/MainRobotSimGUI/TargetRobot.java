@@ -15,15 +15,6 @@ public class TargetRobot extends Robot {
 	private double rAngle;
 	private double rSpeed; // angle and speed of travel
 
-
-	/**
-	 *
-	 */
-	public TargetRobot() {
-		this(100, 100, 10, 45, 1);
-		// TODO Auto-generated constructor stub
-	}
-
 	/**
 	 * @param ix
 	 * @param iy

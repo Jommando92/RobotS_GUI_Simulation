@@ -7,21 +7,14 @@ package MainRobotSimGUI;
 
 /**
  * @author Jumar Quinio Mesicias
- * The Target Robot which you are aiming at
+ * The  WhiskerRobot which you are aiming at
  */
 public class WhiskerBot extends Robot {
-	private static final long serialVersionUID = 1L;
-	// private int score;
+	private static final long serialVersionUID = 1L;// private int score;
 	private double rAngle;
 	private double rSpeed; // angle and speed of travel
 
 
-	/**
-	 *
-	 */
-	// public BeamBot() {
-	// 	this(100, 100, 16, 0, 2); // TODO Auto-generated constructor stub
-	// }
 
 	/**
 	 * @param ix // x position

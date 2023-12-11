@@ -17,12 +17,6 @@ public class GameRobot extends Robot {
    private double bAngle, bSpeed; // angle and speed of travel
 
 
-   /**
-   *
-   */
-   // public GameRobot() {
-   //    // TODO Auto-generated constructor stub
-   // }
 
    /** Create game Robot, size ir ay ix,iy, moving at angle ia and speed is
    * @param ix
@@ -38,12 +32,11 @@ public class GameRobot extends Robot {
       col = 'b';
       //generate a random angle between 0 and 360
       Random r = new Random();
-      bAngle = r.nextDouble() * 360;
-      // Face the robot in that direction with the wheels pointing forward
+      bAngle = r.nextDouble() * 360; // Face the robot in that direction with the wheels pointing forward
       rAngle = bAngle;
 
    }
-   
+
    /**
    * checkRobot - change angle of travel if hitting wall or another Robot
    * @param arena   RobotArena

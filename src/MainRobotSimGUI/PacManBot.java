@@ -10,7 +10,7 @@ import java.util.Iterator;
 
 /**
  * @author Jumar Quinio Mesicias
- * The Target Robot which you are aiming at
+ * The  PacManRobot which you are aiming at
  */
 public class PacManBot extends Robot {
 	private static final long serialVersionUID = 1L;
@@ -18,13 +18,6 @@ public class PacManBot extends Robot {
 	private double rSpeed; // angle and speed of travel
 
 
-
-	/**
-	 *
-	 */
-	// public BeamBot() {
-	// 	this(100, 100, 16, 0, 2); // TODO Auto-generated constructor stub
-	// }
 
 	/**
 	 * @param ix // x position
