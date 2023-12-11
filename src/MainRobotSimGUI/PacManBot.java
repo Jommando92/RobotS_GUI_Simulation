@@ -16,9 +16,7 @@ public class PacManBot extends Robot {
 	private static final long serialVersionUID = 1L;
 	private double rAngle; // angle and speed of travel
 	private double rSpeed; // angle and speed of travel
-	private boolean isEating; //new attribute to track if the PacManBot is eating
-	private double x; //new attribute to track if the PacManBot is eating
-	private double y; //new attribute to track if the PacManBot is eating
+	private boolean isEating; //new attribute to track if the PacManBot is eating a GameRobot
 
 
 
@@ -42,34 +40,19 @@ public class PacManBot extends Robot {
 		rAngle = ia;
 		rSpeed = is;
 		isEating = false;
-	}
 
-	public void setX(double x) {
-		this.x = x;
-	}
-
-	public void setY(double y) {
-		this.y = y;
-	}
-
-	public double getX() {
-		return this.x;
-	}
-
-	public double getY() {
-		return this.y;
 	}
 
 
-	public void followGameRobot(GameRobot gameRobot) {
-		if (!isEating) {
-			double dx = gameRobot.getX() - this.getX();
-			double dy = gameRobot.getY() - this.getY();
-			rAngle = Math.atan2(dy, dx);
-			this.setX(this.getX() + rSpeed * Math.cos(rAngle));
-			this.setY(this.getY() + rSpeed * Math.sin(rAngle));
-		}
-	}
+	// public void followGameRobot(GameRobot gameRobot) {
+	// 	if (!isEating) {
+	// 		double dx = gameRobot.getX() - this.getX();
+	// 		double dy = gameRobot.getY() - this.getY();
+	// 		rAngle = Math.atan2(dy, dx);
+	// 		this.setX(this.getX() + rSpeed * Math.cos(rAngle));
+	// 		this.setY(this.getY() + rSpeed * Math.sin(rAngle));
+	// 	}
+	// }
 
 	public boolean isEating() {
 		return isEating;
