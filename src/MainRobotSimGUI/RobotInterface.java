@@ -148,11 +148,11 @@ public class RobotInterface extends Application {
 	private void showNewArenaDialog() {
 		// Create a dialog with two text input fields
 		Dialog<Pair<String, String>> dialog = new Dialog<>();
-		dialog.setTitle("New Arena");
-		dialog.setHeaderText(null);
+		dialog.setTitle("New Arena Dimensions");
+		dialog.setHeaderText("Enter the width and height of the new arena.");
 
 		// Set the button types (OK and Cancel)
-		ButtonType okButtonType = new ButtonType("OK", ButtonBar.ButtonData.OK_DONE);
+		ButtonType okButtonType = new ButtonType("Confirm", ButtonBar.ButtonData.OK_DONE);
 		dialog.getDialogPane().getButtonTypes().addAll(okButtonType, ButtonType.CANCEL);
 
 		// Create text input fields for width and height
