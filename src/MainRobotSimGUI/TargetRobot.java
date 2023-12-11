@@ -52,7 +52,6 @@ public class TargetRobot extends Robot {
 		mc.showCircle(x, y, rad,col ); // draw Robot body
 		mc.showInt(x, y, score); // display score
 	}
-
 	/**
 	 * adjustRobot
 	 * for moving the Robot - not needed here
