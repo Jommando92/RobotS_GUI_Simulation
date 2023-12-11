@@ -19,6 +19,7 @@ import javafx.scene.Scene;
 import javafx.scene.canvas.Canvas;
 import javafx.scene.control.Alert;
 import javafx.scene.control.Button;
+import javafx.scene.control.ButtonBar;
 import javafx.scene.control.ButtonBar.ButtonData;
 import javafx.scene.control.ButtonType;
 import javafx.scene.control.Dialog;
@@ -27,7 +28,7 @@ import javafx.scene.control.Menu;
 import javafx.scene.control.MenuBar;
 import javafx.scene.control.MenuItem;
 import javafx.scene.control.TextField;
-import javafx.scene.control.TextInputDialog;
+// import javafx.scene.control.TextInputDialog;
 import javafx.scene.control.Alert.AlertType;
 import javafx.scene.layout.BorderPane;
 import javafx.scene.layout.GridPane;
@@ -35,6 +36,7 @@ import javafx.scene.layout.HBox;
 import javafx.scene.layout.VBox;
 import javafx.stage.FileChooser;
 import javafx.stage.Stage;
+import javafx.util.Pair;
 
 /**
  * @author Jumar Quinio Mesicias
@@ -144,48 +146,46 @@ public class RobotInterface extends Application {
 	}
 
 	private void showNewArenaDialog() {
-		GridPane grid = new GridPane();
-		grid.setHgap(10);
-		grid.setVgap(10);
-		grid.setPadding(new Insets(20, 150, 10, 10));
+		// Create a dialog with two text input fields
+		Dialog<Pair<String, String>> dialog = new Dialog<>();
+		dialog.setTitle("New Arena");
+		dialog.setHeaderText(null);
 
+		// Set the button types (OK and Cancel)
+		ButtonType okButtonType = new ButtonType("OK", ButtonBar.ButtonData.OK_DONE);
+		dialog.getDialogPane().getButtonTypes().addAll(okButtonType, ButtonType.CANCEL);
+
+		// Create text input fields for width and height
 		TextField widthField = new TextField();
 		TextField heightField = new TextField();
 
+		// Create a layout for the dialog
+		GridPane grid = new GridPane();
 		grid.add(new Label("Width:"), 0, 0);
 		grid.add(widthField, 1, 0);
 		grid.add(new Label("Height:"), 0, 1);
 		grid.add(heightField, 1, 1);
 
-		Dialog<String> dialog = new Dialog<>();
-		dialog.setTitle("New Arena");
-		dialog.setHeaderText(null);
 		dialog.getDialogPane().setContent(grid);
 
-		ButtonType createButtonType = new ButtonType("Create", ButtonData.OK_DONE);
-		dialog.getDialogPane().getButtonTypes().addAll(createButtonType, ButtonType.CANCEL);
-
+		// Convert the result to a Pair when the OK button is clicked
 		dialog.setResultConverter(dialogButton -> {
-			if (dialogButton == createButtonType) {
-				return widthField.getText() + " " + heightField.getText();
+			if (dialogButton == okButtonType) {
+				return new Pair<>(widthField.getText(), heightField.getText());
 			}
 			return null;
 		});
 
-		Optional<String> result = dialog.showAndWait();
+		// Show the dialog and handle the result
+		Optional<Pair<String, String>> result = dialog.showAndWait();
 
-		result.ifPresent(input -> {
-			String[] dimensions = input.split(" ");
-			if (dimensions.length == 2) {
-				try {
-					int width = Integer.parseInt(dimensions[0]);
-					int height = Integer.parseInt(dimensions[1]);
-					createNewArena(width, height);
-				} catch (NumberFormatException e) {
-					showMessage("Error", "Invalid input. Please enter valid numbers for width and height.");
-				}
-			} else {
-				showMessage("Error", "Invalid input. Please enter both width and height.");
+		result.ifPresent(dimensions -> {
+			try {
+				int width = Integer.parseInt(dimensions.getKey());
+				int height = Integer.parseInt(dimensions.getValue());
+				createNewArena(width, height);
+			} catch (NumberFormatException e) {
+				showMessage("Error", "Invalid input. Please enter valid numbers for width and height.");
 			}
 		});
 	}
