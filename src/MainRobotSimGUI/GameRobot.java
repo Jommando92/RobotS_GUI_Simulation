@@ -15,6 +15,9 @@ public class GameRobot extends Robot {
    private static final long serialVersionUID = 1L;
 
    private double bAngle, bSpeed; // angle and speed of travel
+   private double x;
+   private double y;
+
 
    /**
    *
@@ -41,6 +44,15 @@ public class GameRobot extends Robot {
       // Face the robot in that direction with the wheels pointing forward
       rAngle = bAngle;
 
+   }
+
+
+   public void setX(double x) {
+      this.x = x;
+   }
+
+   public void setY(double y) {
+      this.y = y;
    }
 
    /**
