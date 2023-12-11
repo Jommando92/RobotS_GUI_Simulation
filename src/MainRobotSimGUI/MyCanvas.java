@@ -12,8 +12,8 @@ import javafx.scene.text.TextAlignment;
  *  Class to handle a canvas, used by different GUIs
  */
 public class MyCanvas {
-  int xCanvasSize = 512; // constants for relevant sizes
-  int yCanvasSize = 512;
+  int xCanvasSize = 700; // constants for relevant sizes
+  int yCanvasSize = 700;
   private GraphicsContext gc;
 
 
@@ -50,6 +50,14 @@ public class MyCanvas {
   public void clearCanvas() {
     gc.clearRect(0, 0, xCanvasSize, yCanvasSize); // clear canvas
   }
+
+  public void setCanvasSize(int width, int height) {
+    xCanvasSize = width;
+    yCanvasSize = height;
+    gc.getCanvas().setWidth(width);
+    gc.getCanvas().setHeight(height);
+  }
+
 
   /**
    * drawIt ... draws object defined by given image at position and size

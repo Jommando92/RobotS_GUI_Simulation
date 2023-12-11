@@ -6,6 +6,7 @@ package MainRobotSimGUI;
 
 import java.io.File;
 import java.util.ArrayList;
+import java.util.Optional;
 
 import javafx.animation.AnimationTimer;
 import javafx.application.Application;
@@ -22,6 +23,7 @@ import javafx.scene.control.Label;
 import javafx.scene.control.Menu;
 import javafx.scene.control.MenuBar;
 import javafx.scene.control.MenuItem;
+import javafx.scene.control.TextInputDialog;
 import javafx.scene.control.Alert.AlertType;
 import javafx.scene.layout.BorderPane;
 import javafx.scene.layout.HBox;
@@ -38,7 +40,8 @@ public class RobotInterface extends Application {
 	private AnimationTimer timer;								// timer used for animation
 	private VBox rtPane;										// vertical box for putting info
 	private RobotArena arena;
-    private FileChooser fileChooser; // for selecting files to read/write
+	private FileChooser fileChooser; // for selecting files to read/write
+
 
 
 
@@ -67,68 +70,108 @@ public class RobotInterface extends Application {
 	 * set up the menu of commands for the GUI
 	 * @return the menu bar
 	 */
-	MenuBar setMenu() {
-		// initially set up the file chooser to look for cfg files in current directory
-	fileChooser = new FileChooser();
-	FileChooser.ExtensionFilter extFilter = new FileChooser.ExtensionFilter("Robot Files", "*.cfg");
-	fileChooser.getExtensionFilters().add(extFilter);
-	fileChooser.setInitialDirectory(new File(System.getProperty("user.dir")));
+		MenuBar setMenu() {
+			// initially set up the file chooser to look for cfg files in current directory
+			fileChooser = new FileChooser();
+			FileChooser.ExtensionFilter extFilter = new FileChooser.ExtensionFilter("Robot Files", "*.cfg");
+			fileChooser.getExtensionFilters().add(extFilter);
+			fileChooser.setInitialDirectory(new File(System.getProperty("user.dir")));
+
+			MenuBar menuBar = new MenuBar(); // create main menu
+
+			Menu mFile = new Menu("File"); // add File main menu
+			MenuItem mExit = new MenuItem("Exit"); // whose sub menu has Exit
+			mExit.setOnAction(new EventHandler<ActionEvent>() {
+				public void handle(ActionEvent t) { // action on exit is
+					timer.stop(); // stop timer
+					System.exit(0); // exit program
+				}
+			});
+			MenuItem mLoad = new MenuItem("Load"); // whose sub menu has Exit
+			mLoad.setOnAction(new EventHandler<ActionEvent>() {
+				public void handle(ActionEvent t) { // action on exit
+					timer.stop(); // stop timer
+					File selectedFile = fileChooser.showOpenDialog(null); // ask user for file name
+					if (selectedFile != null) { // if selected
+						if (arena.loadFile(selectedFile.getName()) > 0) // load try to load
+							showMessage("Error", "Could not load file");
+						else {
+							showMessage("Message", "File loaded ok");
+							drawWorld(); // redraw the world
+							drawStatus(); // indicate where Robots are
+						}
+					}
+				}
+			});
+			MenuItem mSave = new MenuItem("Save"); // save option
+			mSave.setOnAction(new EventHandler<ActionEvent>() {
+				public void handle(ActionEvent t) { // action on save
+					timer.stop(); // stop timer
+					File selectedFile = fileChooser.showSaveDialog(null); // user selects file
+					if (selectedFile != null) {
+						if (arena.saveFile(selectedFile.getName()) > 0) // save the arena
+							showMessage("Error", "Could not save file");
+						else
+							showMessage("Message", "File saved ok");
+					}
+				}
+			});
+			MenuItem mNewArena = new MenuItem("New Arena");
+			mNewArena.setOnAction(new EventHandler<ActionEvent>() {
+				@Override
+				public void handle(ActionEvent t) {
+					showNewArenaDialog(); // Call a new method to show a dialog for entering height and width
+				}
+			});
+			mFile.getItems().addAll(mLoad, mSave, mNewArena, mExit); // add load, save and exit to File menu
+
+			Menu mHelp = new Menu("Help"); // create Help menu
+			MenuItem mAbout = new MenuItem("About"); // add About sub men item
+			mAbout.setOnAction(new EventHandler<ActionEvent>() {
+				@Override
+				public void handle(ActionEvent actionEvent) {
+					showAbout(); // and its action to print about
+				}
+			});
+			mHelp.getItems().addAll(mAbout); // add About to Help main item
+			menuBar.getMenus().addAll(mFile, mHelp); // set main menu with File, Help
+			return menuBar; // return the menu
+		}
+
+		private void showNewArenaDialog() {
+			TextInputDialog dialog = new TextInputDialog();
+			dialog.setTitle("New Arena");
+			dialog.setHeaderText(null);
+			dialog.setContentText("Enter the width and height of the new arena (separated by a space):");
+
+			Optional<String> result = dialog.showAndWait();
+
+			result.ifPresent(input -> {
+				String[] dimensions = input.split(" ");
+				if (dimensions.length == 2) {
+					try {
+						int width = Integer.parseInt(dimensions[0]);
+						int height = Integer.parseInt(dimensions[1]);
+						createNewArena(width, height);
+					} catch (NumberFormatException e) {
+						showMessage("Error", "Invalid input. Please enter valid numbers for width and height.");
+					}
+				} else {
+					showMessage("Error", "Invalid input. Please enter both width and height.");
+				}
+			});
+		}
+
+		private void createNewArena(int width, int height) {
+			// Create a new arena with the specified width and height
+			arena = new RobotArena(width, height);
+
+			// Adjust the canvas size and redraw the world
+			mc.setCanvasSize(width, height);
+			drawWorld();
+		}
 
 
-		MenuBar menuBar = new MenuBar();						// create main menu
-
-		Menu mFile = new Menu("File");							// add File main menu
-		MenuItem mExit = new MenuItem("Exit");					// whose sub menu has Exit
-		mExit.setOnAction(new EventHandler<ActionEvent>() {
-		    public void handle(ActionEvent t) {					// action on exit is
-	        	timer.stop();									// stop timer
-		        System.exit(0);									// exit program
-		    }
-		});
-		MenuItem mLoad = new MenuItem("Load");				// whose sub menu has Exit
-		mLoad.setOnAction(new EventHandler<ActionEvent>() {
-		    public void handle(ActionEvent t) {				// action on exit
-            	timer.stop();								// stop timer
-            	File selectedFile = fileChooser.showOpenDialog(null);		// ask user for file name
-            	if (selectedFile != null) {									// if selected
-             		if (arena.loadFile(selectedFile.getName()) > 0)		// load try to load
-            			showMessage("Error", "Could not load file");
-            		else {
-            			showMessage ("Message", "File loaded ok");
-    		            drawWorld();										// redraw the world
-    		            drawStatus();										// indicate where Robots are
-            		}
-            	}
-		    }
-		});
-		MenuItem mSave = new MenuItem("Save");							// save option
-		mSave.setOnAction(new EventHandler<ActionEvent>() {
-		    public void handle(ActionEvent t) {							// action on save
-            	timer.stop();											// stop timer
-            	File selectedFile = fileChooser.showSaveDialog(null);	// user selects file
-            	if (selectedFile != null) {
-            		if ( arena.saveFile(selectedFile.getName()) > 0)	// save the arena
-            			showMessage("Error", "Could not save file");
-            		else showMessage ("Message", "File saved ok");
-            	}
-		    }
-		});
-
-		mFile.getItems().addAll(mLoad, mSave, mExit);			// add load, save and exit to File menu
-
-
-		Menu mHelp = new Menu("Help");							// create Help menu
-		MenuItem mAbout = new MenuItem("About");				// add About sub men item
-		mAbout.setOnAction(new EventHandler<ActionEvent>() {
-            @Override
-            public void handle(ActionEvent actionEvent) {
-            	showAbout();									// and its action to print about
-            }
-		});
-		mHelp.getItems().addAll(mAbout);						// add About to Help main item
-		menuBar.getMenus().addAll(mFile, mHelp);				// set main menu with File, Help
-		return menuBar;											// return the menu
-	}
 
 	/**
 	 * set up the horizontal box for the bottom with relevant buttons
