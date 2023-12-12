@@ -227,8 +227,23 @@ public class RobotInterface extends Application {
 				drawWorld();
 			}
 		});
+
+		Button btnReset = new Button("Reset");
+		btnReset.setOnAction(new EventHandler<ActionEvent>() {
+			@Override
+			public void handle(ActionEvent event) {
+				resetArena(); // Call the reset method when the button is pressed
+			}
+		});
 		// now add these buttons + labels to a HBox
-		return new HBox(new Label("Run: "), btnStart, btnStop, new Label("Add: "), btnAdd);
+		return new HBox(new Label("Run: "), btnStart, btnStop, new Label("Add: "), btnAdd, new Label("Reset: "),
+				btnReset);
+	}
+
+	private void resetArena() {
+		arena = new RobotArena(550, 550); // Reinitialize the arena with default dimensions
+		drawWorld(); // Redraw the world
+		drawStatus(); // Update status
 	}
 
 	/**
