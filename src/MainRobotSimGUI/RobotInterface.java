@@ -7,7 +7,6 @@ package MainRobotSimGUI;
 import java.io.File;
 import java.util.ArrayList;
 import java.util.Optional;
-
 import javafx.animation.AnimationTimer;
 import javafx.application.Application;
 import javafx.event.ActionEvent;
@@ -38,7 +37,7 @@ import javafx.util.Pair;
 
 /**
  * @author Jumar Quinio Mesicias
- *        This is the main class of the Robot Simulation GUI
+ *         This is the main class of the Robot Simulation GUI
  */
 public class RobotInterface extends Application {
 	private MyCanvas mc;
@@ -108,6 +107,7 @@ public class RobotInterface extends Application {
 				}
 			}
 		});
+
 		MenuItem mSave = new MenuItem("Save"); // save option
 		mSave.setOnAction(new EventHandler<ActionEvent>() {
 			public void handle(ActionEvent t) { // action on save
@@ -138,8 +138,9 @@ public class RobotInterface extends Application {
 				showAbout(); // and its action to print about
 			}
 		});
-		mHelp.getItems().addAll(mAbout); // add About to Help main item
 		menuBar.getMenus().addAll(mFile, mHelp); // set main menu with File, Help
+		mHelp.getItems().addAll(mAbout); // add About to Help main item
+
 		return menuBar; // return the menu
 	}
 
@@ -277,11 +278,6 @@ public class RobotInterface extends Application {
 		}
 	}
 
-	/*
-	 * (non-Javadoc)
-	 *
-	 * @see javafx.application.Application#start(javafx.stage.Stage)
-	 */
 	@Override
 	public void start(Stage primaryStage) throws Exception {
 		// TODO Auto-generated method stub

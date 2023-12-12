@@ -82,10 +82,17 @@ public abstract class Robot implements Serializable {
   public int getID() {
     return RobotID;
   }
+/**
+ * move Robot to position newX,newY
+ * @param newX
+ * @param newY
+ */
 
-  // public double getAngle() {
-  // return angle;
-  // }
+
+  public void moveTo(double newX, double newY) {
+    x = newX;
+    y = newY;
+  }
 
   /**
    * draw a Robot into the interface bi
