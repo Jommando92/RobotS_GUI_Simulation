@@ -18,11 +18,6 @@ public abstract class Robot implements Serializable {
   static int robotCounter = 0; // used to give each Robot a unique identifier
   protected int RobotID; // unique identifier for item
   protected double rAngle, rSpeed; // angle and speed of travel
-  // protected double angle;
-
-  // Robot() {
-  // this(100, 100, 5, 0, 4);
-  // }
 
   /**
    * construct a Robot of radius ir at ix,iy

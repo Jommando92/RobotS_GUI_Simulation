@@ -6,7 +6,8 @@ package MainRobotSimGUI;
 
 /**
  * @author Jumar Quinio Mesicias
- *         The BeamRobot is the robot that will move after detecting anything blocking its path, using its beams
+ *         The BeamRobot is the robot that will move after detecting anything
+ *         blocking its path, using its
  */
 public class BeamBot extends Robot {
 	private static final long serialVersionUID = 1L;

@@ -12,8 +12,8 @@ import javafx.scene.text.TextAlignment;
  *      MyCanvas - class to provide a canvas for drawing on and some useful functions
  */
 public class MyCanvas {
-  int xCanvasSize = 700; // constants for relevant sizes
-  int yCanvasSize = 700;
+  int xCanvasSize = 550; // constants for relevant sizes
+  int yCanvasSize = 550;
   private GraphicsContext gc;
 
   /**
@@ -172,8 +172,8 @@ public class MyCanvas {
     gc.strokeLine(x, y, ix, iy); // fill circle
   }
 
-  public void showLine(double x1, double y1, double x2, double y2, double width) {
-    gc.setLineWidth(width);
+  public void showLine(double x1, double y1, double x2, double y2, double width, char col) {
+    gc.setLineWidth(width); // set line width
     gc.strokeLine(x1, y1, x2, y2);
   }
 

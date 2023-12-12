@@ -45,13 +45,15 @@ public class WhiskerBot extends Robot {
 	/**
 	 * draw Robot and display score
 	 */
-
+	@Override
 	public void drawRobot(MyCanvas mc) {
 		double ang = rAngle * Math.PI / 180; // put angle in radians
 		mc.showCircle(x, y, rad, col); // draw Robot body
 		drawWheels(mc, ang); // draw Robot wheels
 		drawAntennas(mc, ang);
 	}
+
+
 
 	private void drawWheels(MyCanvas mc, double ang) {
 		double x1 = x + (rad * Math.cos(ang + Math.PI / 4)); // calculate corners of Robot
@@ -78,8 +80,8 @@ public class WhiskerBot extends Robot {
 		double antenna2X = x + (antennaLength * Math.cos(ang - Math.PI / 6));
 		double antenna2Y = y + (antennaLength * Math.sin(ang - Math.PI / 6));
 
-		mc.showLine(x, y, antenna1X, antenna1Y, antennaWidth); // Draw antenna 1
-		mc.showLine(x, y, antenna2X, antenna2Y, antennaWidth); // Draw antenna 2
+		mc.showLine(x, y, antenna1X, antenna1Y, antennaWidth,'b' ); // Draw antenna 1
+		mc.showLine(x, y, antenna2X, antenna2Y, antennaWidth,'b' ); // Draw antenna 2
 
 	}
 

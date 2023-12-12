@@ -14,7 +14,7 @@ import java.util.ArrayList;
 
 /**
  * @author Jumar Quinio Mesicias
- *      The RobotArena is the arena where the Robots are placed
+ *         The RobotArena is the arena where the Robots are placed
  */
 public class RobotArena implements Serializable {
 
@@ -39,11 +39,13 @@ public class RobotArena implements Serializable {
     xSize = xS;
     ySize = yS;
     allRobots = new ArrayList<Robot>(); // list of all Robots, initially empty
-    allRobots.add(new GameRobot(xS / 2, yS / 2, 14, 15, 4)); // add game Robot
+    allRobots.add(new GameRobot(xS / 2, yS / 12, 14, 15, 4)); // add game Robot
     allRobots.add(new TargetRobot(xS / 5, yS / 7, 14, 30, 2)); // add target Robot
     allRobots.add(new BeamBot(xS / 4, yS / 2, 14, 270, 3)); // add target Robot
     allRobots.add(new WhiskerBot(xS / 8, yS / 2, 14, 45, 3));
     allRobots.add(new PacManBot(xS / 1.2, yS / 2, 14, 65, 2));
+    allRobots.add(new BrokenRobot(xS / 1.75, yS / 1.2, 14, 0, 0));
+    allRobots.add(new BrokenRobot(xS / 1.75, yS / 5, 14, 0, 0));
   }
 
   /**
@@ -153,7 +155,7 @@ public class RobotArena implements Serializable {
   }
 
   public void addRobot() {
-    allRobots.add(new GameRobot(xSize / 2, ySize / 5, 10, 35, 3));
+    allRobots.add(new GameRobot(xSize / 2, ySize / 2, 10, 35, 3));
 
   }
 
