@@ -258,6 +258,8 @@ public class RobotInterface extends Application {
 		mc.showText(x, y, Integer.toString(score));
 	}
 
+
+
 	/**
 	 * draw the world with Robot in it
 	 */

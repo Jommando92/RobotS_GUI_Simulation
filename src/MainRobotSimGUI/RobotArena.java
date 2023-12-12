@@ -26,7 +26,7 @@ public class RobotArena implements Serializable {
    * construct an arena
    */
   RobotArena() {
-    this(550,550); // default size
+    this(550, 550); // default size
   }
 
   /**
