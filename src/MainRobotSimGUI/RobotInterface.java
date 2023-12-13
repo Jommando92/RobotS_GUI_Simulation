@@ -71,25 +71,25 @@ public class RobotInterface extends Application {
 	}
 
 	// /**
-	//  *
-	//  *
-	//  * set up
-	//  * the mouse event-
-	//  * when mouse pressed,
-	//  * put ball there*
-	//  *
-	//  * @param canvas
-	//  */
+	// *
+	// *
+	// * set up
+	// * the mouse event-
+	// * when mouse pressed,
+	// * put ball there*
+	// *
+	// * @param canvas
+	// */
 	// void setMouseEvents(Canvas canvas) {
-	// 	canvas.addEventHandler(MouseEvent.MOUSE_PRESSED, // for MOUSE PRESSED event
-	// 			new EventHandler<MouseEvent>() {
-	// 				@Override
-	// 				public void handle(MouseEvent e) {
-	// 					arena.setUserRobot(e.getX(), e.getY());
-	// 					drawWorld(); // redraw world
-	// 					drawStatus();
-	// 				}
-	// 			});
+	// canvas.addEventHandler(MouseEvent.MOUSE_PRESSED, // for MOUSE PRESSED event
+	// new EventHandler<MouseEvent>() {
+	// @Override
+	// public void handle(MouseEvent e) {
+	// arena.setUserRobot(e.getX(), e.getY());
+	// drawWorld(); // redraw world
+	// drawStatus();
+	// }
+	// });
 	// }
 
 	/**
@@ -309,11 +309,11 @@ public class RobotInterface extends Application {
 		bp.setPadding(new Insets(10, 20, 10, 20));
 		bp.setTop(setMenu()); // put menu at the top
 		Group root = new Group(); // create group with canvas
-		Canvas canvas = new Canvas(400, 500);
+		Canvas canvas = new Canvas(550, 550);
 		root.getChildren().add(canvas);
 		bp.setLeft(root); // load canvas to left area
-		mc = new MyCanvas(canvas.getGraphicsContext2D(), 400, 500);
-		arena = new RobotArena(400, 500); // set up arena
+		mc = new MyCanvas(canvas.getGraphicsContext2D(), 550, 550);
+		arena = new RobotArena(550, 550); // set up arena
 		drawWorld();
 		timer = new AnimationTimer() { // set up timer
 			public void handle(long currentNanoTime) { // and its action when on
