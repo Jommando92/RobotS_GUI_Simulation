@@ -11,6 +11,8 @@ import java.io.ObjectInputStream;
 import java.io.ObjectOutputStream;
 import java.io.Serializable;
 import java.util.ArrayList;
+// import javafx.scene.input.MouseEvent;
+// import javafx.scene.canvas.Canvas;
 
 /**
  * @author Jumar Quinio Mesicias
@@ -46,7 +48,7 @@ public class RobotArena implements Serializable {
     allRobots.add(new PacManBot(xS / 1.2, yS / 2, 14, 65, 2));
     allRobots.add(new BrokenRobot(xS / 1.75, yS / 1.2, 14, 0, 0));
     allRobots.add(new BrokenRobot(xS / 1.75, yS / 5, 14, 0, 0));
-    // allRobots.add(new UserRobot(xS / 2, yS - 20, 14, 20,0));
+    // allRobots.add(new UserControllerRobot(xS / 2, yS - 20, 14, 20,0));
   }
 
   /**
@@ -99,15 +101,25 @@ public class RobotArena implements Serializable {
       b.adjustRobot();// adjust all Robots
   }
 
-  //   /**
-  //  * set the UserRobot at x,y
-  //  *
-  //  * @param x
-  //  * @param y
-  //  */
-  // public void setUserRobot(double x, double y) {
-  //   for (Robot b : allRobots)if (b instanceof UserRobot) b.setXY(x, y);
-  // }
+//     /**
+//    * set the UserRobot at x,y
+//    *
+//    * @param x
+//    * @param y
+//    */
+//   private void setMouseEvents(Canvas canvas) {
+//     canvas.addEventHandler(MouseEvent.MOUSE_PRESSED, event -> {
+//         if (userControllerRobot == null) {
+//             userControllerRobot = new UserControlledRobot(event.getX(), event.getY(), defaultRadius);
+//             arena.addRobot(userControllerRobot);
+//         } else {
+//             userControlledRobot.moveRobot(event);
+//         }
+
+//         drawWorld(); // redraw the world
+//         drawStatus(); // indicate where robots are
+//     });
+// }
 
   /**
    * return list of strings defining each Robot

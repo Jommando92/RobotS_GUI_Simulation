@@ -34,7 +34,7 @@ import javafx.scene.layout.VBox;
 import javafx.stage.FileChooser;
 import javafx.stage.Stage;
 import javafx.util.Pair;
-import javafx.scene.input.MouseEvent;
+// import javafx.scene.input.MouseEvent;
 
 /**
  * @author Jumar Quinio Mesicias
@@ -66,7 +66,9 @@ public class RobotInterface extends Application {
 	 */
 	private void showAbout() {
 		showMessage("About",
-				"JQM's Robot Simulation, This program was create and edited from a ballsSimulationand transform into robots"); // give
+				"JQM's Robot Simulation"+
+				"This program was create and edited from a ballsSimulationand transform into robots"+
+				"I have modify it to get the robots in to the arena."); // give
 																											// text
 	}
 
