@@ -1,11 +1,15 @@
 package MainRobotSimGUI;
 
-/**
- *
- */
 
 /**
  * @author Jumar Quinio Mesicias
+ *
+ *
+ *
+ *
+ *
+ *
+ *
  *         The Target Robot which you are aiming at to hit with the GameRobot
  */
 public class TargetRobot extends Robot {

@@ -8,7 +8,12 @@ import java.io.Serializable;
 
 /**
  * @author Jumar Quinio Mesicias
- * this Robot is the parent class of all the other Robots in the arena
+ *
+ *
+ *
+ *
+ * 
+ *         this Robot is the parent class of all the other Robots in the arena
  */
 public abstract class Robot implements Serializable {
 
@@ -20,7 +25,7 @@ public abstract class Robot implements Serializable {
   protected double rAngle, rSpeed; // angle and speed of travel
 
   Robot() {
-    this(100,100,10, 10, 3);
+    this(100, 100, 10, 10, 3);
   }
 
   /**

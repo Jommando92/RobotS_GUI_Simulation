@@ -38,6 +38,12 @@ import javafx.util.Pair;
 
 /**
  * @author Jumar Quinio Mesicias
+ *
+ *
+ *
+ *
+ *
+ *
  *         This is the main class of the Robot Simulation GUI
  */
 public class RobotInterface extends Application {
@@ -107,6 +113,7 @@ public class RobotInterface extends Application {
 		fileChooser.setInitialDirectory(new File(System.getProperty("user.dir")));
 
 		MenuBar menuBar = new MenuBar(); // create main menu
+		menuBar.setStyle("-fx-background-color:#ADD8E6 ;"); // set its colour
 
 		Menu mFile = new Menu("File"); // add File main menu
 		MenuItem mExit = new MenuItem("Exit"); // whose sub menu has Exit

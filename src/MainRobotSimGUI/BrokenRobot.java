@@ -33,13 +33,11 @@ public class BrokenRobot extends Robot {
 
 	@Override
 	protected void checkRobot(RobotArena b) {
-		// nowt to do
 
 	}
 
 	@Override
 	protected void adjustRobot() {
-		// nowt to do
 
 	}
 	protected String getStrType() {

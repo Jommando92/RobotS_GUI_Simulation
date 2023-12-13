@@ -9,13 +9,18 @@ import java.util.Random;
 /**
  * @author Jumar Quinio Mesicias
  *
+ *
+ *
+ *
+ *
+ *
+ *
  *        The Game Robot which you are controlling to hit the TargetRobot
  *
  */
 public class GameRobot extends Robot {
 
    private static final long serialVersionUID = 1L;
-
    private double bAngle, bSpeed; // angle and speed of travel
 
    /**

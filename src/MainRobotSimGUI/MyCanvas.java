@@ -8,7 +8,10 @@ import javafx.scene.shape.ArcType;
 import javafx.scene.text.TextAlignment;
 
 /**
- * @author shsmchlr
+ * @author Jumar Quinio Mesicias
+ *
+ *
+ *
  *      MyCanvas - class to provide a canvas for drawing on and some useful functions
  */
 public class MyCanvas {

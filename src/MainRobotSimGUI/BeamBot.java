@@ -6,6 +6,9 @@ package MainRobotSimGUI;
 
 /**
  * @author Jumar Quinio Mesicias
+ *
+ *
+ *
  *         The BeamRobot is the robot that will move after detecting anything
  *         blocking its path, using its
  */

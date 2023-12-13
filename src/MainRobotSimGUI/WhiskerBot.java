@@ -6,7 +6,12 @@ package MainRobotSimGUI;
 
 /**
  * @author Jumar Quinio Mesicias
- *         The WhiskerRobot is the robot that will move after detecting anything blocking its path, using its whiskers
+ *
+ *
+ *
+ *
+ *         The WhiskerRobot is the robot that will move after detecting anything
+ *         blocking its path, using its whiskers
  */
 public class WhiskerBot extends Robot {
 	private static final long serialVersionUID = 1L;// private int score;
@@ -53,8 +58,6 @@ public class WhiskerBot extends Robot {
 		drawAntennas(mc, ang);
 	}
 
-
-
 	private void drawWheels(MyCanvas mc, double ang) {
 		double x1 = x + (rad * Math.cos(ang + Math.PI / 4)); // calculate corners of Robot
 		double y1 = y + (rad * Math.sin(ang + Math.PI / 4));
@@ -80,8 +83,8 @@ public class WhiskerBot extends Robot {
 		double antenna2X = x + (antennaLength * Math.cos(ang - Math.PI / 6));
 		double antenna2Y = y + (antennaLength * Math.sin(ang - Math.PI / 6));
 
-		mc.showLine(x, y, antenna1X, antenna1Y, antennaWidth,'b' ); // Draw antenna 1
-		mc.showLine(x, y, antenna2X, antenna2Y, antennaWidth,'b' ); // Draw antenna 2
+		mc.showLine(x, y, antenna1X, antenna1Y, antennaWidth, 'b'); // Draw antenna 1
+		mc.showLine(x, y, antenna2X, antenna2Y, antennaWidth, 'b'); // Draw antenna 2
 
 	}
 
