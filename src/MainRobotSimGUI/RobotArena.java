@@ -46,7 +46,7 @@ public class RobotArena implements Serializable {
     allRobots.add(new PacManBot(xS / 1.2, yS / 2, 14, 65, 2));
     allRobots.add(new BrokenRobot(xS / 1.75, yS / 1.2, 14, 0, 0));
     allRobots.add(new BrokenRobot(xS / 1.75, yS / 5, 14, 0, 0));
-    allRobots.add(new UserRobot(xS / 2, yS - 20, 14, 20,0));
+    // allRobots.add(new UserRobot(xS / 2, yS - 20, 14, 20,0));
   }
 
   /**
@@ -99,15 +99,15 @@ public class RobotArena implements Serializable {
       b.adjustRobot();// adjust all Robots
   }
 
-    /**
-   * set the UserRobot at x,y
-   *
-   * @param x
-   * @param y
-   */
-  public void setUserRobot(double x, double y) {
-    for (Robot b : allRobots)if (b instanceof UserRobot) b.setXY(x, y);
-  }
+  //   /**
+  //  * set the UserRobot at x,y
+  //  *
+  //  * @param x
+  //  * @param y
+  //  */
+  // public void setUserRobot(double x, double y) {
+  //   for (Robot b : allRobots)if (b instanceof UserRobot) b.setXY(x, y);
+  // }
 
   /**
    * return list of strings defining each Robot

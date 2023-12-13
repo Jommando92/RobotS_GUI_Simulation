@@ -70,27 +70,27 @@ public class RobotInterface extends Application {
 																											// text
 	}
 
-	/**
-	 *
-	 *
-	 * set up
-	 * the mouse event-
-	 * when mouse pressed,
-	 * put ball there*
-	 *
-	 * @param canvas
-	 */
-	void setMouseEvents(Canvas canvas) {
-		canvas.addEventHandler(MouseEvent.MOUSE_PRESSED, // for MOUSE PRESSED event
-				new EventHandler<MouseEvent>() {
-					@Override
-					public void handle(MouseEvent e) {
-						arena.setUserRobot(e.getX(), e.getY());
-						drawWorld(); // redraw world
-						drawStatus();
-					}
-				});
-	}
+	// /**
+	//  *
+	//  *
+	//  * set up
+	//  * the mouse event-
+	//  * when mouse pressed,
+	//  * put ball there*
+	//  *
+	//  * @param canvas
+	//  */
+	// void setMouseEvents(Canvas canvas) {
+	// 	canvas.addEventHandler(MouseEvent.MOUSE_PRESSED, // for MOUSE PRESSED event
+	// 			new EventHandler<MouseEvent>() {
+	// 				@Override
+	// 				public void handle(MouseEvent e) {
+	// 					arena.setUserRobot(e.getX(), e.getY());
+	// 					drawWorld(); // redraw world
+	// 					drawStatus();
+	// 				}
+	// 			});
+	// }
 
 	/**
 	 * @param canvas
