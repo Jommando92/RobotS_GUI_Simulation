@@ -39,13 +39,14 @@ public class RobotArena implements Serializable {
     xSize = xS;
     ySize = yS;
     allRobots = new ArrayList<Robot>(); // list of all Robots, initially empty
-    allRobots.add(new GameRobot(xS / 2, yS / 12, 14, 15, 4)); // add game Robot
-    allRobots.add(new TargetRobot(xS / 5, yS / 7, 14, 30, 2)); // add target Robot
-    allRobots.add(new BeamBot(xS / 4, yS / 2, 14, 270, 3)); // add target Robot
+    allRobots.add(new GameRobot(xS / 2, yS / 12, 14, 15, 4));
+    allRobots.add(new TargetRobot(xS / 5, yS / 7, 14, 30, 2));
+    allRobots.add(new BeamBot(xS / 4, yS / 2, 14, 270, 3));
     allRobots.add(new WhiskerBot(xS / 8, yS / 2, 14, 45, 3));
     allRobots.add(new PacManBot(xS / 1.2, yS / 2, 14, 65, 2));
     allRobots.add(new BrokenRobot(xS / 1.75, yS / 1.2, 14, 0, 0));
     allRobots.add(new BrokenRobot(xS / 1.75, yS / 5, 14, 0, 0));
+    allRobots.add(new UserRobot(xS / 2, yS - 20, 14, 20,0));
   }
 
   /**
@@ -76,6 +77,8 @@ public class RobotArena implements Serializable {
       b.drawRobot(mc); // draw all Robots
   }
 
+
+
   // Add this method to RobotArena class
   public ArrayList<Robot> getAllRobots() {
     return allRobots;
@@ -88,17 +91,22 @@ public class RobotArena implements Serializable {
     for (Robot b : allRobots)
       b.checkRobot(this); // check all Robots
   }
-
-  public void removeRobot(Robot robot) {
-    allRobots.remove(robot);
-  }
-
   /**
    * adjust all Robots .. move any moving ones
    */
   public void adjustRobots() {
     for (Robot b : allRobots)
       b.adjustRobot();// adjust all Robots
+  }
+
+    /**
+   * set the UserRobot at x,y
+   *
+   * @param x
+   * @param y
+   */
+  public void setUserRobot(double x, double y) {
+    for (Robot b : allRobots)if (b instanceof UserRobot) b.setXY(x, y);
   }
 
   /**

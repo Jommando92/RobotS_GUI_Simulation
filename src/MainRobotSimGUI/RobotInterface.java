@@ -34,6 +34,7 @@ import javafx.scene.layout.VBox;
 import javafx.stage.FileChooser;
 import javafx.stage.Stage;
 import javafx.util.Pair;
+import javafx.scene.input.MouseEvent;
 
 /**
  * @author Jumar Quinio Mesicias
@@ -67,6 +68,28 @@ public class RobotInterface extends Application {
 		showMessage("About",
 				"JQM's Robot Simulation, This program was create and edited from a ballsSimulationand transform into robots"); // give
 																											// text
+	}
+
+	/**
+	 *
+	 *
+	 * set up
+	 * the mouse event-
+	 * when mouse pressed,
+	 * put ball there*
+	 *
+	 * @param canvas
+	 */
+	void setMouseEvents(Canvas canvas) {
+		canvas.addEventHandler(MouseEvent.MOUSE_PRESSED, // for MOUSE PRESSED event
+				new EventHandler<MouseEvent>() {
+					@Override
+					public void handle(MouseEvent e) {
+						arena.setUserRobot(e.getX(), e.getY());
+						drawWorld(); // redraw world
+						drawStatus();
+					}
+				});
 	}
 
 	/**
@@ -257,8 +280,6 @@ public class RobotInterface extends Application {
 	public void showScore(double x, double y, int score) {
 		mc.showText(x, y, Integer.toString(score));
 	}
-
-
 
 	/**
 	 * draw the world with Robot in it

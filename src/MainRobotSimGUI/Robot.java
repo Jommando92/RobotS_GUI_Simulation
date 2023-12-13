@@ -14,10 +14,14 @@ public abstract class Robot implements Serializable {
 
   private static final long serialVersionUID = 1L;
   protected double x, y, rad; // position and size of Robot
-  protected char col; // used to set colourw
+  protected char col; // used to set colour
   static int robotCounter = 0; // used to give each Robot a unique identifier
   protected int RobotID; // unique identifier for item
   protected double rAngle, rSpeed; // angle and speed of travel
+
+  Robot() {
+    this(100,100,10, 10, 3);
+  }
 
   /**
    * construct a Robot of radius ir at ix,iy
@@ -81,17 +85,6 @@ public abstract class Robot implements Serializable {
    */
   public int getID() {
     return RobotID;
-  }
-/**
- * move Robot to position newX,newY
- * @param newX
- * @param newY
- */
-
-
-  public void moveTo(double newX, double newY) {
-    x = newX;
-    y = newY;
   }
 
   /**
