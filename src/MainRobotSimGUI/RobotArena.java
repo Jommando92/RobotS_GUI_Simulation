@@ -106,25 +106,6 @@ public class RobotArena implements Serializable {
       b.adjustRobot();// adjust all Robots
   }
 
-//     /**
-//    * set the UserRobot at x,y
-//    *
-//    * @param x
-//    * @param y
-//    */
-//   private void setMouseEvents(Canvas canvas) {
-//     canvas.addEventHandler(MouseEvent.MOUSE_PRESSED, event -> {
-//         if (userControllerRobot == null) {
-//             userControllerRobot = new UserControlledRobot(event.getX(), event.getY(), defaultRadius);
-//             arena.addRobot(userControllerRobot);
-//         } else {
-//             userControlledRobot.moveRobot(event);
-//         }
-
-//         drawWorld(); // redraw the world
-//         drawStatus(); // indicate where robots are
-//     });
-// }
 
   /**
    * return list of strings defining each Robot
@@ -164,6 +145,7 @@ public class RobotArena implements Serializable {
 
     return ans; // return the angle
   }
+
 
   /**
    * check if the target Robot has been hit by another Robot
